@@ -1,22 +1,28 @@
-const log = console.log
+const http = require('http').createServer();
+const io = require('socket.io')(http);
+const port = 3000;
 
-// initialize http server, socket.io and port number
+const fs= require('fs');
 
-const http = require('http').createServer()
-const io = require('socket.io')(http)
-const port = 3000
+http.listen(port, () => console.log(`Servidor escuchando en el puerto: ${port}`));
 
-http.listen(port, () => log(`server listening on port: ${port}`))
+let textoCompleto = fs.readFileSync('texto.txt', 'utf8');
+//console.log(textoCompleto);
 
 io.on('connection', (socket) => {
-    log('connected')
-    socket.on('message', (evt) => {
-        log(evt)
-        socket.broadcast.emit('message', evt)
+    //console.log('Conectado');
+
+    socket.emit('message', textoCompleto);
+    
+    socket.on('message', (texto) => {
+        textoCompleto= texto;
+        //console.log(textoCompleto);
+        socket.broadcast.emit('message', texto);
+    });
+});
+
+setInterval(() => {
+    fs.writeFile('texto.txt', textoCompleto, ()=> {
+        //console.log(`Se guardo: ${textoCompleto}`);
     })
-})
-
-io.on('disconnect', (evt) => {
-    log('some people left')
-})
-
+},10000);

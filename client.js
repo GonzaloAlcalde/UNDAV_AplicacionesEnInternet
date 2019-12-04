@@ -1,17 +1,12 @@
 var socket = io('http://localhost:3000');
-const log = console.log
 
-function getEl(id) {
-    return document.getElementById(id)
-}
+const editor = document.getElementById("editor");
 
-const editor = getEl("editor")
-
-editor.addEventListener("keyup", (evt) => {
-    const text = editor.value
-    socket.send(text)
+editor.addEventListener("keyup", () => {
+    const texto = editor.value;
+    socket.send(texto);
 })
 
-socket.on('message', (data) => {
-    editor.value = data
+socket.on('message', (texto) => {
+    editor.value = texto;
 })

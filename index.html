@@ -1,12 +1,30 @@
 <html>
+
+<head>
+    <style>
+        h2 {
+            color: green;
+            font-family: Calibri;
+            font-size: 250%;
+        }
+        textarea {
+            background-color:rgba(92, 151, 245, 0.76);
+            font-family: Calibri;
+            font-size: 125%;
+        }
+    </style>
+</head>
+
 <title>Gooble Drove</title>
 
 <body>
-    <h2>Gooble Drove</h2>
+    <h2> <img src="image.png" width="50" height="50"> Gooble Drove </h2>
     <div>
-        <textarea rows="30" cols="50" id="editor" style="background-color:dimgrey;color:white" placeholder="Escribi lo que quieras wachin!"></textarea>
+        <textarea autofocus rows="20" cols="100" id="editor"></textarea>
     </div>
-</body
+</body>
 
-><script src="./node_modules/socket.io-client/dist/socket.io.js"></script>
-<script src="./client.js"></script></html>
+<script src="./node_modules/socket.io-client/dist/socket.io.js"></script>
+<script src="./client.js"></script>
+
+</html>
