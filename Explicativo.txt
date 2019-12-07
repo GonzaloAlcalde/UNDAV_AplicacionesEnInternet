@@ -1,0 +1,34 @@
+------------------------------ Módulos
+
+-server.js
+
+Archivo que contiene el código que maneja el comportamiento del servidor.
+
+-client.js
+
+Archivo que contiene el código que maneja el comportamiento del cliente.
+
+-index.html
+
+Archivo que contiene la estructura del sitio web.
+
+-package.json
+
+Archivo manifiesto del proyecto, define nombre, versión, dependencias, entre otras cosas.
+
+-texto.txt
+
+Archivo que contiene el texto editado por los usuarios.
+
+------------------------------- Funcionamiento
+
+Los usuarios a través de una página web (index.html) pueden editar un texto cuyos cambios
+se verán reflejados en tiempo real por todos los demás usuarios.
+Dicho texto se guarda (en texto.txt) cada 10 segundos y puede ser recuperado al reconectarse.
+
+Para más detalles ver comentarios en el código.
+
+------------------------------- Requerimientos para instalación
+
+Para editar el código y ejecutar localmente: Visual Studio Code, NodeJS y Navegador.
+Para acceder al programa de forma remota: Navegador.
